@@ -1,12 +1,13 @@
 ﻿using RestWithASPNETUdemy.Model;
+using System.Collections.Generic;
 
 namespace RestWithASPNETUdemy.Services
 {
-    interface IPersonService
+    public interface IPersonService
     {
         Person Create(Person person);
         Person FindById(long id);
-        Person FindAll();
+        List<Person> FindAll();
         Person Update(Person person);
         void Delete(long id);
     }
