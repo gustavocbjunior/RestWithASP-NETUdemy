@@ -47,8 +47,10 @@ namespace RestWithASPNETUdemy.Controllers
         public IActionResult Put(int id, [FromBody] Person person)
         {
             if (person == null) return BadRequest();
+            var updatePerson = _personBusiness.Update(person);
+            if (updatePerson == null) return BadRequest();
 
-            return new ObjectResult(_personBusiness.Update(person));
+            return new ObjectResult(updatePerson);
         }
 
         // DELETE api/values/5
