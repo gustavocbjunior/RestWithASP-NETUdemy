@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RestWithASPNETUdemy.Model;
 using RestWithASPNETUdemy.Business;
+using RestWithASPNETUdemy.Data.VO;
 
 namespace RestWithASPNETUdemy.Controllers
 {
@@ -35,7 +35,7 @@ namespace RestWithASPNETUdemy.Controllers
 
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody] Person person)
+        public IActionResult Post([FromBody] PersonVO person)
         {
             if (person == null) return BadRequest();
 
@@ -44,7 +44,7 @@ namespace RestWithASPNETUdemy.Controllers
 
         // PUT api/values/5
         [HttpPut]
-        public IActionResult Put(int id, [FromBody] Person person)
+        public IActionResult Put(int id, [FromBody] PersonVO person)
         {
             if (person == null) return BadRequest();
             var updatePerson = _personBusiness.Update(person);
