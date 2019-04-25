@@ -2,8 +2,8 @@
 using RestWithASPNETUdemy.Business;
 using RestWithASPNETUdemy.Data.VO;
 using Tapioca.HATEOAS;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RestWithASPNETUdemy.Controllers
 {
@@ -25,6 +25,7 @@ namespace RestWithASPNETUdemy.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
@@ -37,6 +38,7 @@ namespace RestWithASPNETUdemy.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(long id)
         {
@@ -51,6 +53,7 @@ namespace RestWithASPNETUdemy.Controllers
         [ProducesResponseType((201), Type = typeof(List<PersonVO>))]        
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] PersonVO person)
         {
@@ -64,6 +67,7 @@ namespace RestWithASPNETUdemy.Controllers
         [ProducesResponseType((202), Type = typeof(List<PersonVO>))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put(int id, [FromBody] PersonVO person)
         {
@@ -79,6 +83,7 @@ namespace RestWithASPNETUdemy.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Delete(int id)
         {
